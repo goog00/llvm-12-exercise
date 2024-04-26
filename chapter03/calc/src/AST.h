@@ -4,11 +4,12 @@
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/ADT/StringRef.h"
 
+//AST 和 Expr 仅用于创建公共类的层次结构
 class AST;
 class Expr;
-class Factor;
-class BinaryOp;
-class WithDecl;
+class Factor;//保存数字或标识符
+class BinaryOp;//保存了计算表达式所需的数据
+class WithDecl;//存储声明的变量和表达式
 
 class ASTVisitor {
 public:

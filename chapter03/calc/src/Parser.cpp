@@ -1,14 +1,17 @@
 #include "Parser.h"
 
+//处理整个输入
 AST *Parser::parse() {
   AST *Res = parseCalc();
   expect(Token::eoi);
   return Res;
 }
 
+//解析计算表达式：calc : ("with" ident ("," ident)* ":")? expr ;
 AST *Parser::parseCalc() {
   Expr *E;
   llvm::SmallVector<llvm::StringRef, 8> Vars;
+
   if (Tok.is(Token::KW_with)) {
     advance();
     if (expect(Token::ident))

@@ -5,6 +5,7 @@
 #include "llvm/ADT/StringRef.h"
 #include "llvm/Support/MemoryBuffer.h" //提供对一个内存块的只读访问
 
+//词法分析器--用输入的文本创建标记序列，用令牌来保存。
 class Lexer;
 
 class Token {
@@ -17,14 +18,15 @@ public:
         unknown,//unknown 用于词汇错误的情况
         ident,
         number,
-        comma,
-        colon,
-        plus,
-        minus,
-        star,
-        l_paren,
-        r_paren,
-        KW_with
+        comma,//,
+        colon,//:
+        plus,// +
+        minus,//-
+        star,//*
+        slash,//  /
+        l_paren,//(
+        r_paren,//)
+        KW_with// with
     };
 
 
